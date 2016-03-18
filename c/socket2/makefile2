@@ -1,0 +1,9 @@
+objs = socketclient.o socketserver.o
+all:$(objs)
+.PHONY:all
+
+$(objs):%.o:%.c
+	$(CC) $(CFLAG) $< -o $(subst .o, , $@)
+
+clean:
+	rm $(objs)

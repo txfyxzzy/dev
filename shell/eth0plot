@@ -1,0 +1,7 @@
+ #! /bin/bash
+while true;do
+    #echo -n `date +%H:%M:%S` " " >> result;echo $[`ifconfig | awk -F ":" 'NR==8{print $2+$3}'`-`awk '{sum+=$2}END{print sum}'  result `]>>result
+    echo -n `date +%H:%M:%S` " " >> result;echo $[`ifconfig | awk -F ":" 'NR==30{print $2+$3}'`]>>result
+    cat eth0 | gnuplot
+    sleep 60        
+done

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="OperaMainActivity" default="help">
+
+	<property name="sdk.dir" location="${wam.dir}/../../chromium/src/third_party/android_tools/sdk" />
+    
+    <import file="custom_rules.xml" />
+    <!-- Import Android's build file. -->
+    <!-- version-tag: custom -->
+    <import file="${sdk.dir}/tools/ant/build.xml" as="sdk_build_file"/>
+
+    <target name="-check-env">
+        <antcall target="sdk_build_file.-check-env" />
+        <antcall target="gen_lib_manifest" />
+        <gen-oupeng-reksio-config/>
+    </target>
+</project>

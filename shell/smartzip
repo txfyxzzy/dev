@@ -1,0 +1,18 @@
+#!/bin/sh
+
+ ftype=`file "$1"`   # Note ' and ` is different
+ echo "File $1 type is $ftype"
+
+ case "$ftype" in
+ "$1: Zip archive"*)
+    echo "==Zip"
+    unzip "$1" ;;
+ "$1: gzip compressed"*)
+    echo "==gzip"
+    gunzip "$1" ;;
+ "$1: bzip2 compressed"*)
+    echo "==bzip2"
+    bunzip2 "$1" ;;
+ *) echo "File $1 type is $ftype,  can not be uncompressed with smartzip";;
+ esac 
+

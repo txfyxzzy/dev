@@ -1,0 +1,7 @@
+obj = nslookup.o
+nslookup:$(obj)
+	gcc -o nslookup $(obj)
+
+.PHONY:clean
+clean:
+	rm nslookup $(obj)

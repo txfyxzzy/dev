@@ -1,0 +1,36 @@
+#!/bin/sh
+echo "login shell is ${SHELL}"
+
+#test#test
+#test a is ok
+#tt
+#test
+#Var is a test Variable
+
+a="hello world!"
+echo "a is:" $a
+num=2
+echo "this is the ${num}nd"
+var=1
+var=`expr $var + 1`
+echo $var
+
+if [ -n "$var" ] ; then
+  echo "var is $var"
+else
+  echo "var is empty"
+fi
+
+if [ "$var" = "${num}" ] ; then
+  echo "var == num"
+else
+  echo "var != num"
+fi
+
+[ -f "/etc/shadow" ] || echo "This computer uses shadow passwords"
+
+mailfolder=/var/spool/mail/james
+[ -r "$mailfolder" ] || { echo "Can not read $mailfolder" ; exit 1; }
+echo "$mailfolder has mail from:"
+grep "^From " $mailfolder
+

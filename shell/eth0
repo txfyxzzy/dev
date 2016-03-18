@@ -1,0 +1,8 @@
+set terminal png small xF0F8FF picsize 800 600 #以png格式，坐标字体为小字体，大小为600*400输出绘图
+set output "eth0.png" #输出图片的名称为eth0.png
+set xdata time    #设定X坐标的类型为时间类型
+set timefmt "%H:%M:%S" #设定时间类型的格式
+set grid    #设定网格为输出图片背景
+set style data linespoints    #设定绘图使用点线方式
+set xtic rotate by 90    #将X坐标以90旋转
+plot "result" using 1:2 title "eth0" pointtype 3 linetype 2#以result文件的一列为X坐标绘制第二列的内容，图片右上

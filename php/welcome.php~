@@ -1,0 +1,14 @@
+<html>
+<body>
+
+<?php
+$name = $_POST["name"];
+$age = $_REQUEST["age"];
+echo $name;
+echo $_POST;
+echo $name . "<br>" . $age;
+?>
+
+</body>
+</html>
+

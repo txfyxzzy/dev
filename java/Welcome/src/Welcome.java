@@ -1,0 +1,14 @@
+
+public class Welcome {
+	public static void main(String[] args)
+	{
+		String[] g = new String[3];
+		g[0] = "Welcome to";
+		g[1] = "core";
+		g[2] = "java";
+		
+		for (String gi : g)
+			System.out.println(gi);
+	}
+
+}
