@@ -16,6 +16,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 from djcube.views import hello, current_datetime, current_datetime_ex, hours_ahead
+from books import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -23,4 +24,7 @@ urlpatterns = [
     url(r'^time/$', current_datetime),
     url(r'^timeex/$', current_datetime_ex),
     url(r'^time/plus/(\d{1,2})/$', hours_ahead),
+    url(r'^meta/$', views.display_meta),
+    url(r'^search/$', views.search),
+    #url(r'^search-res/$', views.search),
 ]
