@@ -27,4 +27,5 @@ urlpatterns = [
     url(r'^meta/$', views.display_meta),
     url(r'^search/$', views.search),
     #url(r'^search-res/$', views.search),
+    url(r'^contact/$', views.contact),
 ]
