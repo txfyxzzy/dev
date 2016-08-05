@@ -38,6 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'books',
+    'gunicorn',
+    #'gunicorn --worker-class=gevent isaced.wsgi:application'
 )
 
 MIDDLEWARE_CLASSES = (

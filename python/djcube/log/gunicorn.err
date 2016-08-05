@@ -1,0 +1,24 @@
+[2016-03-29 16:18:06 +0000] [16999] [INFO] Starting gunicorn 19.4.5
+[2016-03-29 16:18:06 +0000] [16999] [INFO] Listening at: http://127.0.0.1:8002 (16999)
+[2016-03-29 16:18:06 +0000] [16999] [INFO] Using worker: sync
+[2016-03-29 16:18:06 +0000] [17004] [INFO] Booting worker with pid: 17004
+[2016-03-30 08:25:09 +0000] [16999] [CRITICAL] WORKER TIMEOUT (pid:17004)
+[2016-03-30 00:25:09 +0000] [17004] [INFO] Worker exiting (pid: 17004)
+[2016-03-30 08:25:09 +0000] [14993] [INFO] Booting worker with pid: 14993
+[2016-04-01 08:51:28 +0000] [16999] [CRITICAL] WORKER TIMEOUT (pid:14993)
+[2016-04-01 00:51:28 +0000] [14993] [INFO] Worker exiting (pid: 14993)
+[2016-04-01 08:51:28 +0000] [6077] [INFO] Booting worker with pid: 6077
+[2016-04-04 12:29:44 +0000] [16999] [CRITICAL] WORKER TIMEOUT (pid:6077)
+[2016-04-04 04:29:44 +0000] [6077] [INFO] Worker exiting (pid: 6077)
+[2016-04-04 12:29:44 +0000] [31682] [INFO] Booting worker with pid: 31682
+[2016-04-05 09:12:11 +0000] [16999] [CRITICAL] WORKER TIMEOUT (pid:31682)
+[2016-04-05 01:12:11 +0000] [31682] [INFO] Worker exiting (pid: 31682)
+[2016-04-05 09:12:11 +0000] [2724] [INFO] Booting worker with pid: 2724
+[2016-04-12 07:54:26 +0000] [16999] [CRITICAL] WORKER TIMEOUT (pid:2724)
+[2016-04-11 23:54:26 +0000] [2724] [INFO] Worker exiting (pid: 2724)
+[2016-04-12 07:54:26 +0000] [9542] [INFO] Booting worker with pid: 9542
+[2016-04-15 08:41:19 +0000] [16999] [CRITICAL] WORKER TIMEOUT (pid:9542)
+[2016-04-15 00:41:19 +0000] [9542] [INFO] Worker exiting (pid: 9542)
+[2016-04-15 08:41:20 +0000] [9861] [INFO] Booting worker with pid: 9861
+[2016-04-15 03:09:00 +0000] [9861] [INFO] Worker exiting (pid: 9861)
+[2016-04-15 11:09:00 +0000] [16999] [INFO] Handling signal: term
