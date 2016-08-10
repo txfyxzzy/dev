@@ -25,8 +25,8 @@ class MailSpider(scrapy.Spider):
     }
 
     formdata = {
-        'form_email': '您的账号',
-        'form_password': '您的密码',
+        'form_email': 'txfyxzzy@gmail.com',
+        'form_password': 'txfy_Douban9',
         # 'captcha-solution': '',
         # 'captcha-id': '',
         'login': '登录',
