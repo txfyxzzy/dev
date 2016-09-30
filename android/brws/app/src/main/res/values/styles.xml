@@ -8,4 +8,49 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="EllipsizedSingleLineTextView">
+
+        <!-- android:singleLine is deprecated but seems ellipsize is really buggy without it -->
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:lines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+
+    <style name="FavoriteItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:clipChildren">false</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:paddingTop">@dimen/favorite_grid_item_padding_top</item>
+        <item name="android:paddingBottom">@dimen/favorite_grid_item_padding_bottom</item>
+    </style>
+
+    <style name="FavoriteItemIconContainer">
+        <item name="android:layout_marginLeft">@dimen/favorite_grid_item_padding_side</item>
+        <item name="android:layout_marginRight">@dimen/favorite_grid_item_padding_side</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:clipChildren">false</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:duplicateParentState">true</item>
+    </style>
+
+    <style name="FavoriteItemLabel" parent="EllipsizedSingleLineTextView">
+        <item name="android:layout_marginLeft">2dp</item>
+        <item name="android:layout_marginRight">2dp</item>
+        <item name="android:layout_marginTop">@dimen/grid_item_title_top_margin</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textAppearance">@android:style/TextAppearance</item>
+        <item name="android:textSize">@dimen/grid_item_title_size</item>
+        <!-- textColor will be set to FavoriteGridView#itemTitleColor -->
+        <item name="android:textColor">@color/grid_item_title_color</item>
+    </style>
+
 </resources>

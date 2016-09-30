@@ -7,4 +7,9 @@
     <dimen name="favorite_grid_bottom_padding">4.5dp</dimen>
     <dimen name="favorite_grid_left_padding">8dp</dimen>
     <dimen name="favorite_grid_right_padding">8dp</dimen>
+
+    <dimen name="favorite_grid_item_padding_top">@dimen/favorite_grid_item_padding_side</dimen>
+    <dimen name="favorite_grid_item_padding_bottom">3dp</dimen>
+    <dimen name="favorite_grid_item_padding_side">10dp</dimen>
+
 </resources>

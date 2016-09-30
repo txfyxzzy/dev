@@ -6,4 +6,17 @@
     <dimen name="favorite_grid_bottom_padding">4.5dp</dimen>
     <dimen name="favorite_grid_left_padding">8dp</dimen>
     <dimen name="favorite_grid_right_padding">8dp</dimen>
+
+    <dimen name="favorite_grid_item_padding_top">@dimen/favorite_grid_item_padding_side</dimen>
+    <dimen name="favorite_grid_item_padding_bottom">3dp</dimen>
+    <dimen name="favorite_grid_item_padding_side">10dp</dimen>
+
+    <dimen name="grid_item_title_top_margin">4dp</dimen>
+    <dimen name="grid_item_title_size">10sp</dimen>
+
+    <dimen name="folder_preview_padding">6dp</dimen>
+
+    <dimen name="favorite_grid_item_notification_margin">-10dp</dimen>
+    <dimen name="favorite_grid_item_notification_size">22dp</dimen>
+
 </resources>
