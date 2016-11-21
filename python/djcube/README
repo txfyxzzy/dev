@@ -1,0 +1,26 @@
+#README
+
+cd /djcube/
+
+pip install django
+pip install djangorestframework
+pip install markdown       # Markdown support for the browsable API.
+pip install django-filter  # Filtering support
+
+virtualenv env
+source env/bin/activate
+
+django-admin.py startproject djcube
+
+django-admin.py startapp djcube/book
+
+python manage.py migrate
+python manage.py createsuperuser
+
+python manage.py runserver 8080
+
+python manage.py shell
+
+curl -H 'Accept: application/json; indent=4' -u admin:password http://127.0.0.1:8080/users/
+
+
