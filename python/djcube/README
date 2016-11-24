@@ -1,5 +1,8 @@
 #README
 
+/usr/local/lib/python2.7/dist-packages/Django-1.8.11-py2.7.egg/django/http/response.py
+/usr/local/lib/python2.7/dist-packages/rest_framework/generics.py
+
 cd /djcube/
 
 pip install django
@@ -27,3 +30,12 @@ manage.py shell
 curl -H 'Accept: application/json; indent=4' -u admin:password http://127.0.0.1:8080/users/
 http http://127.0.0.1:8080/snippets/
 
+
+  {
+    "id": 2,
+    "title": "",
+    "code": "print \"hello, world\"\n",
+    "linenos": false,
+    "language": "python",
+    "style": "friendly"
+  }
