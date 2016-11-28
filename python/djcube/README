@@ -1,14 +1,21 @@
 #README
-
-/usr/local/lib/python2.7/dist-packages/Django-1.8.11-py2.7.egg/django/http/response.py
-/usr/local/lib/python2.7/dist-packages/rest_framework/generics.py
-
-cd /djcube/
+========install========
+apt-get install python-mysql
 
 pip install django
 pip install djangorestframework
 pip install markdown       # Markdown support for the browsable API.
 pip install django-filter  # Filtering support
+
+
+========CMD========
+/usr/lib/python2.7/dist-packages/pip/download.py
+/usr/local/lib/python2.7/dist-packages/django/bin/django-admin.py
+/usr/local/lib/python2.7/dist-packages/Django-1.8.11-py2.7.egg/django/bin/django-admin.py
+/usr/local/lib/python2.7/dist-packages/Django-1.8.11-py2.7.egg/django/http/response.py
+/usr/local/lib/python2.7/dist-packages/rest_framework/generics.py
+
+cd /djcube/
 
 virtualenv env
 source env/bin/activate
@@ -27,6 +34,7 @@ manage.py runserver 8080
 
 manage.py shell
 
+========Test========
 curl -H 'Accept: application/json; indent=4' -u admin:password http://127.0.0.1:8080/users/
 http http://127.0.0.1:8080/snippets/
 
@@ -39,3 +47,21 @@ http http://127.0.0.1:8080/snippets/
     "language": "python",
     "style": "friendly"
   }
+
+=======migrate=========
+$ manage.py migrate
+Operations to perform:
+  Synchronize unmigrated apps: staticfiles, rest_framework, messages, gunicorn
+  Apply all migrations: sessions, admin, auth, contenttypes, books, snippets
+Synchronizing apps without migrations:
+  Creating tables...
+    Running deferred SQL...
+  Installing custom SQL...
+Running migrations:
+  Rendering model states... DONE
+  Applying books.0001_initial... OK
+  Applying snippets.0001_initial... OK
+
+
+=======django lib=========
+django.http HttpResponse
