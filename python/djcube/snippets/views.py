@@ -249,14 +249,14 @@ class SnippetHighlight(generics.GenericAPIView):
 
 
 #===========viewsets ==============
-class UserViewSet(viewsets.ReadOnlyModelViewSet):
+class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
 from rest_framework.decorators import detail_route
 
-@detail_route(render_classes=[renderers.StaticHTMLRenderer])
-class SnippetViewSet(viewsets.ReadOnlyModelViewSet):
+@detail_route(renderer_classes=[renderers.StaticHTMLRenderer])
+class SnippetViewSet(viewsets.ModelViewSet):
     queryset = Snippet.objects.all()
     serializer_class = SnippetSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly)
