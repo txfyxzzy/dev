@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+import logging
+
 # Create your views here.
 from django.contrib.auth.models import User
 from django.http import HttpResponse
@@ -10,19 +12,23 @@ from rest_framework.views import APIView
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 
-from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework.reverse import reverse
 
 from rest_framework import mixins
 from rest_framework import generics
 from rest_framework import permissions
+from rest_framework import renderers
+from rest_framework import status
 
 from snippets.models import Snippet
 from snippets.serializers import SnippetSerializer
 from snippets.serializers import UserSerializer
 from snippets.permissions import IsOwnerOrReadOnly
 
+
+logger = logging.getLogger(__name__)
 
 class JSONResponse(HttpResponse):
     """
@@ -168,11 +174,14 @@ class SnippetDetail(APIView):
 class SnippetListEx(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPIView):
     queryset = Snippet.objects.all()
     serializer_class = SnippetSerializer
+    print "SnippetListEx init"
 
     def get(self, request, *args, **kwargs):
+        print "SnippetListEx get"
         return self.list(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
+        print "SnippetListEx post"
         return self.create(request, *args, **kwargs)
 
 class SnippetDetailEx(mixins.RetrieveModelMixin,
@@ -195,8 +204,10 @@ class SnippetListExEx(generics.ListCreateAPIView):
     queryset = Snippet.objects.all()
     serializer_class = SnippetSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly)
+    logger.info("SnippetListExEx init")
 
     def perform_create(self, serializer):
+        logger.info("SnippetListExEx perform_create")
         serializer.save(owner=self.request.user)
 
 class SnippetDetailExEx(generics.RetrieveUpdateDestroyAPIView):
@@ -213,3 +224,24 @@ class UserList(generics.ListAPIView):
 class UserDetail(generics.RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+
+#=========== ==============
+@api_view(['GET'])
+def api_root(request, format=None):
+    logger.info("api_root Response")
+    return Response({
+        'users': reverse('user-list', request=request, format=format),
+        'snippets': reverse('snippet-list', request=request, format=format)
+    })
+
+class SnippetHighlight(generics.GenericAPIView):
+    queryset = Snippet.objects.all()
+    serializer_class = SnippetSerializer
+    renderer_classes = (renderers.StaticHTMLRenderer,)
+    logger.info("SnippetHighlight init")
+
+    def get(self, request, *args, **kwargs):
+        logger.info("SnippetHighlight get")
+        snippet = self.get_object()
+        return Response(snippet.highlighted)

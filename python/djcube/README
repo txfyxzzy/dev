@@ -63,5 +63,11 @@ Running migrations:
   Applying snippets.0001_initial... OK
 
 
+=======mysql migrate=========
+base: has data already
+1. add fields
+2. backup database
+
+
 =======django lib=========
 django.http HttpResponse
