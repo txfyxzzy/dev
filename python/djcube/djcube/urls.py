@@ -20,6 +20,7 @@ from rest_framework import routers, serializers, viewsets
 from djcube.views import hello, current_datetime, current_datetime_ex, hours_ahead
 from books import views
 
+"""
 # Serializers define the API representation.
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -33,11 +34,12 @@ class UserViewSet(viewsets.ModelViewSet):
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
-
+router.register(r'users', views.UserViewSet)
+router.register(r'snippets', views.SnippetViewSet)
+"""
 
 urlpatterns = [
-    url(r'^', include(router.urls)),
+    #url(r'^', include(router.urls)),
     url(r'^', include('snippets.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^hello/$', hello),
@@ -48,5 +50,5 @@ urlpatterns = [
     url(r'^search/$', views.search),
     #url(r'^search-res/$', views.search),
     url(r'^contact/$', views.contact),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    #url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]

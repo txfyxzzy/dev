@@ -21,6 +21,7 @@ from rest_framework import generics
 from rest_framework import permissions
 from rest_framework import renderers
 from rest_framework import status
+from rest_framework import viewsets
 
 from snippets.models import Snippet
 from snippets.serializers import SnippetSerializer
@@ -243,5 +244,26 @@ class SnippetHighlight(generics.GenericAPIView):
 
     def get(self, request, *args, **kwargs):
         logger.info("SnippetHighlight get")
+        snippet = self.get_object()
+        return Response(snippet.highlighted)
+
+
+#===========viewsets ==============
+class UserViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+from rest_framework.decorators import detail_route
+
+@detail_route(render_classes=[renderers.StaticHTMLRenderer])
+class SnippetViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Snippet.objects.all()
+    serializer_class = SnippetSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly)
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
+    def highlight(self, request, *args, **kwargs):
         snippet = self.get_object()
         return Response(snippet.highlighted)
