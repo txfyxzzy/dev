@@ -16,6 +16,14 @@ public class FavoritesAdapter extends BaseAdapter implements View.OnClickListene
 
     private final FavoriteContainer mRoot;
 
+    public FavoritesAdapter() {
+        mRoot = null;
+    }
+
+    public FavoritesAdapter(FavoriteContainer favoriteContainer) {
+        mRoot = favoriteContainer;
+    }
+
     @Override
     public int getCount() {
         return 0;

@@ -54,8 +54,8 @@ public class MainActivity extends Activity {
         view3 = inflater.inflate(R.layout.news_view, null);
 
         viewList.add(view1);
-        viewList.add(view2);
         viewList.add(view3);
+        viewList.add(view2);
 
         viewPager.setAdapter(pagerAdapter);
         viewPager.setCurrentItem(1);

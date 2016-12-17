@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Brws</string>
+    <string name="bookmarks_fragment_title">"Bookmarks"</string>
 </resources>
