@@ -14,41 +14,23 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from django.contrib.auth.models import User
-from rest_framework import routers, serializers, viewsets
 
-from djcube.views import hello, current_datetime, current_datetime_ex, hours_ahead
+from djcube.views import hello, time_1, time_2, hours_ahead
 from books import views
 
-"""
-# Serializers define the API representation.
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = User
-        fields = ('url', 'username', 'email', 'is_staff')
-
-# ViewSets define the view behavior.
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-
-# Routers provide an easy way of automatically determining the URL conf.
-router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'snippets', views.SnippetViewSet)
-"""
+admin.autodiscover()
 
 urlpatterns = [
-    #url(r'^', include(router.urls)),
-    url(r'^', include('snippets.urls')),
+    url(r'^polls/', include('polls.urls')),
+    url(r'^snippets/', include('snippets.urls')),
     url(r'^admin/', include(admin.site.urls)),
+
     url(r'^hello/$', hello),
-    url(r'^time/$', current_datetime),
-    url(r'^timeex/$', current_datetime_ex),
+    url(r'^time1/$', time_1),
+    url(r'^time2/$', time_2),
     url(r'^time/plus/(\d{1,2})/$', hours_ahead),
+
     url(r'^meta/$', views.display_meta),
-    url(r'^search/$', views.search),
-    #url(r'^search-res/$', views.search),
-    url(r'^contact/$', views.contact),
-    #url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^search/$', views.search_form),
+    url(r'^contact/$', views.contact_2),
 ]

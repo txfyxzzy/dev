@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'gunicorn',
     'rest_framework',
     'snippets',
+
     #'snippets.apps.SnippetsConfig',
     #'gunicorn --worker-class=gevent isaced.wsgi:application'
 )
